@@ -1,18 +1,20 @@
-.container-img{
+.container-img {
     width: 600px;
     margin: 0 auto;
     position: relative;
     padding-top: 100px;
 }
 
-.width-img{
+.width-img {
     width: 100%;
     height: auto;
     aspect-ratio: 2/1;
     position: absolute;
+    opacity: 0;
 }
 
-.scroll-next{
+
+.scroll-next {
     padding: .5rem;
     border-radius: 100%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -20,17 +22,43 @@
     left: 50%;
 }
 
-.scroll-prev{
+.scroll-prev {
     padding: .5rem;
     border-radius: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     left: 50%;
-    top: 360px;   
-    transform: rotate(180deg); 
+    top: 360px;
+    transform: rotate(180deg);
 }
 
 .scroll-next::after,
-.scroll-prev::after{
+.scroll-prev::after {
     content: "^"
 }
+
+.title-text {
+    position: absolute;
+    color: white;
+    top: 330px;
+    right: 10px;
+    opacity: 0;
+    padding: 0 .5rem;
+}
+
+.descrption-text {
+    position: absolute;
+    color: white;
+    top: 350px;
+    font-size: .8rem;
+    text-align: end;
+    padding: .2rem 1rem;
+    opacity: 0;
+}
+
+.opacity,
+.opacity-title,
+.opacity-description {
+    opacity: 1;
+}
+

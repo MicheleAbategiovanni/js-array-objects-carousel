@@ -1,34 +1,36 @@
-function generateImage(containerEl, array, i) {
+function generateImage(containerEl, array,) {
 
-    // ciclare l'array
-    // e cos' abbiaom ogni singolo oggetto di immagine
 
-    // --> dentro il ciclo
-    const scrollNextEl = document.createElement("button");
-    const scrollPrevEl = document.createElement("button");
-    const immagine = array[i];
-    const imgEl = document.createElement("img");
+    for (let i = 0; i < array.length; i++) {
+        const immagine = array[i];
+        const imgEl = document.createElement("img");
+        const titleEl = document.createElement("h4");
+        const descriptionEl = document.createElement("p");
 
-    imgEl.classList.add("width-img");
-    imgEl.src = immagine.image;
+        if (i === 0) {
+           
+            imgEl.classList.add("opacity");
+            titleEl.classList.add("opacity-title");
+            descriptionEl.classList.add("opacity-description");
+
+        }
+
+        imgEl.classList.add("width-img");
+        imgEl.id = "immagine_grande";
+        imgEl.src = immagine.image;
+
+        titleEl.textContent = `${immagine.title}`
+        titleEl.classList.add("title-text");
+
+        descriptionEl.textContent = `${immagine.text}`;
+        descriptionEl.classList.add("descrption-text");
+
+        containerEl.append(imgEl, titleEl, descriptionEl);
+    }
+
 
     scrollNextEl.classList.add("scroll-next")
     scrollPrevEl.classList.add("scroll-prev")
 
-
-    containerEl.append(imgEl, scrollNextEl, scrollPrevEl);
-
-    scrollNextEl.addEventListener("click", function () {
-
-        i++;
-
-        if (i > array.length - 1) {
-            i = 0;
-        }
-
-        const immagine = array[i];
-        imgEl.src = immagine.image;
-
-    });
-
+    containerEl.append(scrollNextEl, scrollPrevEl);
 }

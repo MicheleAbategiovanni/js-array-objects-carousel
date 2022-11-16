@@ -22,8 +22,43 @@ const images = [
     }
 ];
 
+const scrollNextEl = document.createElement("button");
+const scrollPrevEl = document.createElement("button");
+
 const containerImgEl = document.querySelector(".container-img");
-let i = 0;
+let m = 0;
 
-generateImage(containerImgEl, images, i);
+generateImage(containerImgEl, images, scrollNextEl, scrollPrevEl);
 
+scrollNextEl.addEventListener("click", function () {
+
+    const imgElements = document.querySelectorAll("img");
+    const titleElements = document.querySelectorAll("h4");
+    const descriptionElements = document.querySelectorAll("p");
+
+    const oldImg = document.querySelector(".opacity");
+    const oldTitle = document.querySelector(".opacity-title");
+    const oldDescription = document.querySelector(".opacity-description");
+
+    m++;
+
+    if (m > imgElements.length - 1) {
+        m = 0;
+    }
+
+    console.log(oldImg)
+
+    oldImg.classList.remove("opacity");
+    oldTitle.classList.remove("opacity-title");
+    oldDescription.classList.remove("opacity-description"); 
+
+
+    const newActiveEl = imgElements[m];
+    const newTitleElements = titleElements[m];
+    const newDescriptionElements = descriptionElements[m];
+
+
+    newActiveEl.classList.add("opacity");
+    newTitleElements.classList.add("opacity-title");
+    newDescriptionElements.classList.add("opacity-description"); 
+});
