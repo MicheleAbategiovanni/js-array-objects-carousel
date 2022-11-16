@@ -23,7 +23,7 @@ const images = [
 ];
 
 const containerImgEl = document.querySelector(".container-img");
+let i = 0;
 
-generateImage(containerImgEl, images);
-
+generateImage(containerImgEl, images, i);
 
